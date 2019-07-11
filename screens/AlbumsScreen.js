@@ -6,40 +6,53 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class AlbumsScreen extends React.Component {
   state= {
-    cardName: 'Some Album',
+    albums: [
+      {
+        title: 'Meteora',
+        image: 'https://i.pinimg.com/originals/c1/db/04/c1db04e854d022ea38b504e7f2a38025.jpg'
+      },
+      {
+        title: 'Meteora',
+        image: 'https://i.pinimg.com/originals/c1/db/04/c1db04e854d022ea38b504e7f2a38025.jpg'
+      },
+      {
+        title: 'Meteora',
+        image: 'https://i.pinimg.com/originals/c1/db/04/c1db04e854d022ea38b504e7f2a38025.jpg'
+      },
+      {
+        title: 'Meteora',
+        image: 'https://i.pinimg.com/originals/c1/db/04/c1db04e854d022ea38b504e7f2a38025.jpg'
+      },
+    ]
 
   }
 
-  cardNumber = 0;
+  renderAlbums() {
+    const {albums}= this.state;
+    return albums.map((album, index)=> {
+      return (
+        <Card
+        title={album.title}
+        image={{uri: album.image}}>
+            
+            <Button
+       icon={<Icon name='code' color='#ffffff' />}
+       backgroundColor='#03A9F4'
+       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+       title='VIEW NOW' />
+        </Card>
 
-  changeCardName =()=> {
-    this.setState({
-      cardName: `I am a new CardName ${this.cardNumber}`
-    })
-    this.cardNumber++
-  }
+      )
+  })
+}
+
 
   render(){
-    const {cardName}= this.state;
+    
   return (
     <ScrollView style={styles.container}>
-     <Card
-     title={cardName}>
-         <Text style={{marginBottom: 10}}>
-             The idea with React Native Elements is to be great
-         </Text>
-         <Button
-    icon={<Icon name='code' color='#ffffff' />}
-    backgroundColor='#03A9F4'
-    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-    title='VIEW NOW' />
-     </Card>
-     <Button
-    icon={<Icon name='code' color='#ffffff' />}
-    backgroundColor='#03A9F4'
-    buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-    title='Change Card Name' 
-    onPress={()=> {this.changeCardName()}}/>
+      
+    {this.renderAlbums()}
 
     </ScrollView>
   );
