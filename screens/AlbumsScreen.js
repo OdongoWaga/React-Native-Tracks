@@ -8,13 +8,12 @@ import SearchText from '../components/SearchText';
 
 
 export default class AlbumsScreen extends React.Component {
-  constructor() {
-    super();
-  this.state= {
+  state= {
     albums: []
   };
 
-  actions.searchTracks('eminem').then(albums => this.setState({albums}));
+  searchTracks=(artist) => {
+  actions.searchTracks(artist).then(albums => this.setState({albums}));
   }
   
 
@@ -26,7 +25,7 @@ export default class AlbumsScreen extends React.Component {
     
   return (
     <ScrollView style={styles.container}>   
-    <SearchText> </SearchText>  
+    <SearchText submitSearch={(artist)=> {this.searchTracks(artist)}}> </SearchText>  
     <CardList data={albums} imageKey={'cover_big'} titleKey={'title'}
     buttonText="See the detail">
     </CardList>

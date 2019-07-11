@@ -11,8 +11,9 @@ class SearchText extends Component {
         this.setState({value})
     }
 
-    submitSearch=()=> {
-        
+    onSubmitSearch=()=> {
+        const {submitSearch}= this.props;
+        submitSearch(this.state.value)
     }
 
     render() {
@@ -25,7 +26,8 @@ class SearchText extends Component {
             onChangeText={(e)=> this.onChange(e) }
             />
             <Button title='Search'
-            onPress={()=>{}}/>
+            onPress={()=> this.onSubmitSearch()}/>
+
             </>
         )
     }
