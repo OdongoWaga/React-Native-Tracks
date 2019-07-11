@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import {Card, Text, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import CardList from '../components/CardList';
 
 
 export default class AlbumsScreen extends React.Component {
@@ -27,32 +28,18 @@ export default class AlbumsScreen extends React.Component {
 
   }
 
-  renderAlbums() {
-    const {albums}= this.state;
-    return albums.map((album, index)=> {
-      return (
-        <Card
-        title={album.title}
-        image={{uri: album.image}}>
-            
-            <Button
-       icon={<Icon name='code' color='#ffffff' />}
-       backgroundColor='#03A9F4'
-       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-       title='VIEW NOW' />
-        </Card>
-
-      )
-  })
-}
+  
 
 
   render(){
+    const {albums} = this.state;
     
   return (
     <ScrollView style={styles.container}>
       
-    {this.renderAlbums()}
+    <CardList data={albums}>
+
+    </CardList>
 
     </ScrollView>
   );
