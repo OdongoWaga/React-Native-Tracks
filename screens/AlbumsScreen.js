@@ -24,7 +24,7 @@ export default function AlbumsScreen() {
 }
 
 AlbumsScreen.navigationOptions = {
-  title: 'Links',
+  title: 'Albums',
 };
 
 const styles = StyleSheet.create({
