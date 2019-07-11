@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import {Card, Text, Button} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 export default function AlbumsScreen() {
