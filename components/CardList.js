@@ -25,7 +25,15 @@ class CardList extends Component {
     }
 
   render() {
-    return this.renderData()
+    const {data} = this.props;
+    if(data && data.length >0) {
+        return this.renderData()
+    }
+    else {
+        return <View><Text> Loading ...</Text></View>
+    }
+
+    
   }
 }
 
