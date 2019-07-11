@@ -4,6 +4,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 import CardList from '../components/CardList';
 import * as actions from '../actions';
+import SearchText from '../components/SearchText';
 
 
 export default class AlbumsScreen extends React.Component {
@@ -24,7 +25,8 @@ export default class AlbumsScreen extends React.Component {
     const {albums} = this.state;
     
   return (
-    <ScrollView style={styles.container}>     
+    <ScrollView style={styles.container}>   
+    <SearchText> </SearchText>  
     <CardList data={albums} imageKey={'cover_big'} titleKey={'title'}
     buttonText="See the detail">
     </CardList>
