@@ -4,19 +4,20 @@ import {Card, Text, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class CardList extends Component {
-    renderAlbums() {
-        const {data}= this.props;
-        return data.map((album, index)=> {
+    renderData() {
+        const {data, imageKey, titleKey, buttonText}= this.props;
+        return data.map((item, index)=> {
           return (
             <Card
-            title={album.title}
-            image={{uri: album.image}}>
+            key={index}
+            title={item[titleKey]}
+            image={{uri: item[imageKey]}}>
                 
                 <Button
            icon={<Icon name='code' color='#ffffff' />}
            backgroundColor='#03A9F4'
            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-           title='VIEW NOW' />
+           title={buttonText} />
             </Card>
     
           )
@@ -24,7 +25,7 @@ class CardList extends Component {
     }
 
   render() {
-    return this.renderAlbums()
+    return this.renderData()
   }
 }
 

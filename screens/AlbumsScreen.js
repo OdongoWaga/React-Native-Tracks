@@ -37,7 +37,8 @@ export default class AlbumsScreen extends React.Component {
   return (
     <ScrollView style={styles.container}>
       
-    <CardList data={albums}>
+    <CardList data={albums} imageKey={'image'} titleKey={'title'}
+    buttonText="See the detail">
 
     </CardList>
 
