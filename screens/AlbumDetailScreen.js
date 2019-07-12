@@ -12,8 +12,12 @@ export default class AlbumDetailScreen extends Component {
       const album = this.props.navigation.getParam('album', {});
     return (
       <View>
-        <Text> AlbumDetailScreen </Text>
+        <Text> {album.title} </Text>
       </View>
     );
   }
 }
+
+AlbumDetailScreen.navigationOptions = {
+    title: 'Album Detail',
+  };
