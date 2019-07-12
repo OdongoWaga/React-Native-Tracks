@@ -12,7 +12,7 @@ class CardList extends Component {
             key={index}
             title={item[titleKey]}
             image={{uri: item[imageKey]}}>
-                {bottomView()}
+                {bottomView(item)}
             </Card>
     
           )

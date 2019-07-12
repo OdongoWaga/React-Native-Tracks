@@ -19,7 +19,7 @@ export default class AlbumsScreen extends React.Component {
   .catch(err => this.setState({albums:[], isFetching:false}));
   }
 
-  returnBottomNavigator=()=> {
+  returnBottomNavigator=(album)=> {
 
     return (
       <View style={styles.albumMenu}>
@@ -29,7 +29,7 @@ export default class AlbumsScreen extends React.Component {
               type='font-awesome'
               color='#f50'
               size={30} />
-        <Icon onPress={() => {}}
+        <Icon onPress={() => {this.props.navigation.navigate('AlbumDetail', {album})}}
               raised
               name='info'
               type='font-awesome'
