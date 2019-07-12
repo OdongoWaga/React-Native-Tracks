@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import * as actions from '../actions'
-import { Avatar, Text, Icon, Divider } from 'react-native-elements';
+import { Avatar, Text, Icon, Divider, ListItem } from 'react-native-elements';
 
 
 export default class AlbumDetailScreen extends Component {
@@ -20,6 +20,29 @@ export default class AlbumDetailScreen extends Component {
       tracks => this.setState({tracks}))
     .catch(error => console.error(error))
 
+  }
+
+  renderTracks () {
+      const {tracks} = this.state;
+
+      if(tracks && tracks.length > 0) {
+          return tracks.map((track, index)=> {
+              return (
+                  <ListItem key={index}
+                            title={track.title}
+                            leftIcon={{name: 'play-arrow'}}
+                            onPress={()=> {}}
+                            rightIcon={
+                                <Icon raised
+                                name='star'
+                                type='font-awesome'
+                                color='#f50'
+                                onPress={()=> {}}
+                                />
+                            }/>
+              )
+          })
+      }
   }
 
   render() {
@@ -46,6 +69,7 @@ export default class AlbumDetailScreen extends Component {
         </View>
         </View>
         <Divider style={{backgroundColor:'black'}}/>
+        {this.renderTracks()}
       </ScrollView>
     );
       }
