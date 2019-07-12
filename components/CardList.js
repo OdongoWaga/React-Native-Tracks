@@ -30,7 +30,7 @@ class CardList extends Component {
         return this.renderData()
     }
     else {
-        return <View><Text> Loading ...</Text></View>
+        return <View><Text> </Text></View>
     }
 
     

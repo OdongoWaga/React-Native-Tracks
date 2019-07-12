@@ -24,6 +24,7 @@ class SearchText extends Component {
             placeholder='Type here'
             label='Search for an artist'
             onChangeText={(e)=> this.onChange(e) }
+ 
             />
             <Button title='Search'
             onPress={()=> this.onSubmitSearch()}/>
