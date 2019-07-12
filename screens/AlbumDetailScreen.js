@@ -69,7 +69,9 @@ export default class AlbumDetailScreen extends Component {
         </View>
         </View>
         <Divider style={{backgroundColor:'black'}}/>
+        <View>
         {this.renderTracks()}
+        </View>
       </ScrollView>
     );
       }
