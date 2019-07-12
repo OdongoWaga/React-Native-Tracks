@@ -86,4 +86,8 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     backgroundColor: '#fff',
   },
+  albumMenu:{
+    flexDirection: 'row',
+    justifyContent: "space-between"
+  }
 });
