@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import * as actions from '../actions'
-import { Avatar, Text } from 'react-native-elements';
+import { Avatar, Text, Icon } from 'react-native-elements';
 
 
 export default class AlbumDetailScreen extends Component {
@@ -14,10 +14,10 @@ export default class AlbumDetailScreen extends Component {
 
   componentDidMount() {
     const album = this.props.navigation.getParam('album', {});
+
     actions.getAlbumTracks(album.id).then(
-        tracks => this.setState({tracks})
-        .catch(error=> console.error(error))
-    )
+      tracks => this.setState({tracks}))
+    .catch(error => console.error(error))
 
   }
 
@@ -34,6 +34,12 @@ export default class AlbumDetailScreen extends Component {
             <Text h4>{album.title}</Text>
             <Text h4>{album.title}</Text>
         </View>
+        <Icon raised 
+            name="play"
+            type="font-awesome"
+            color="#f50"
+            size={30}
+            />
         </View>
       </ScrollView>
     );
