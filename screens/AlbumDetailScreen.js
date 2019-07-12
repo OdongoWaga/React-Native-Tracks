@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import * as actions from '../actions'
-import { Avatar, Text, Icon } from 'react-native-elements';
+import { Avatar, Text, Icon, Divider } from 'react-native-elements';
 
 
 export default class AlbumDetailScreen extends Component {
@@ -35,7 +35,7 @@ export default class AlbumDetailScreen extends Component {
         <View>
             <Text h4>{album.title}</Text>
             <Text h4>{artist}</Text>
-        </View>
+        
         <Icon raised 
             name="play"
             type="font-awesome"
@@ -44,6 +44,8 @@ export default class AlbumDetailScreen extends Component {
             onPress={()=> {}}
             />
         </View>
+        </View>
+        <Divider style={{backgroundColor:'black'}}/>
       </ScrollView>
     );
       }
