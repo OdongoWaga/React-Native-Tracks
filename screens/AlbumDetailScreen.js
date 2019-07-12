@@ -14,6 +14,7 @@ export default class AlbumDetailScreen extends Component {
 
   componentDidMount() {
     const album = this.props.navigation.getParam('album', {});
+    
 
     actions.getAlbumTracks(album.id).then(
       tracks => this.setState({tracks}))
@@ -23,6 +24,7 @@ export default class AlbumDetailScreen extends Component {
 
   render() {
       const album = this.props.navigation.getParam('album', {});
+      const artist= this.props.navigation.getParam('artist', '');
     if(album.id) {
       return (
       <ScrollView><View>
@@ -32,7 +34,7 @@ export default class AlbumDetailScreen extends Component {
         source={{uri:album.cover_medium}}></Avatar>
         <View>
             <Text h4>{album.title}</Text>
-            <Text h4>{album.title}</Text>
+            <Text h4>{artist}</Text>
         </View>
         <Icon raised 
             name="play"
