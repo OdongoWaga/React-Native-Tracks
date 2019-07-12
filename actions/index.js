@@ -20,3 +20,7 @@ import _ from 'lodash';
 
      );
  }
+
+ export const getAlbumTracks = albumId => {
+     return axiosInstance.get(`album/${albumId}`). then(response => response.data.tracks.data);
+ }
