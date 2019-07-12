@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import {Card, Text, Button} from 'react-native-elements';
-//import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import CardList from '../components/CardList';
 import * as actions from '../actions';
 import SearchText from '../components/SearchText';
@@ -19,6 +19,32 @@ export default class AlbumsScreen extends React.Component {
   .catch(err => this.setState({albums:[], isFetching:false}));
   }
 
+  returnBottomNavigator=()=> {
+
+    return (
+      <View style={styles.albumMenu}>
+        <Icon onPress={() => {}}
+              raised
+              name='play'
+              type='font-awesome'
+              color='#f50'
+              size={30} />
+        <Icon onPress={() => {}}
+              raised
+              name='info'
+              type='font-awesome'
+              color='#f50'
+              size={30} />
+        <Icon onPress={() => {}}
+              raised
+              name='thumbs-up'
+              type='font-awesome'
+              color='#f50'
+              size={30} />
+      </View>
+    )
+  }
+
   renderAlbumView() {
     const {albums, isFetching} = this.state;
     return (
@@ -26,7 +52,8 @@ export default class AlbumsScreen extends React.Component {
       <SearchText submitSearch={(artist)=> {this.searchTracks(artist)}}> </SearchText>  
       {albums.length >0 && !isFetching &&
       <CardList data={albums} imageKey={'cover_big'} titleKey={'title'}
-      buttonText="See the detail">
+      buttonText="See the detail" 
+      bottomView={this.returnBottomNavigator}>
       </CardList>
       }
       {albums.length === 0 && isFetching &&
