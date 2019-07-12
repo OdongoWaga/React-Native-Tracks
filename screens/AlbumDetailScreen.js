@@ -39,6 +39,7 @@ export default class AlbumDetailScreen extends Component {
             type="font-awesome"
             color="#f50"
             size={30}
+            onPress={()=> {}}
             />
         </View>
       </ScrollView>
