@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet, Linking } from 'react-native';
 import * as actions from '../actions'
 import { Avatar, Text, Icon, Divider, ListItem } from 'react-native-elements';
 
@@ -32,7 +32,7 @@ export default class AlbumDetailScreen extends Component {
                             containerStyle={{paddingTop: 0, marginTop: 0}}
                             title={track.title}
                             leftIcon={{name: 'play-arrow'}}
-                            onPress={()=> {}}
+                            onPress={()=> Linking.openURL(track.preview)}
                             rightIcon={
                                 <Icon raised
                                 name='star'
@@ -67,7 +67,7 @@ export default class AlbumDetailScreen extends Component {
             type="font-awesome"
             color="#f50"
             size={30}
-            onPress={()=> {}}
+            onPress={()=> Linking.openURL(this.state.tracks[0].preview)}
             />
         </View>
         </View>
