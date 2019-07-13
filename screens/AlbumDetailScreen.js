@@ -29,6 +29,7 @@ export default class AlbumDetailScreen extends Component {
           return tracks.map((track, index)=> {
               return (
                   <ListItem key={index}
+                            containerStyle={{paddingTop: 0, marginTop: 0}}
                             title={track.title}
                             leftIcon={{name: 'play-arrow'}}
                             onPress={()=> {}}
@@ -50,14 +51,16 @@ export default class AlbumDetailScreen extends Component {
       const artist= this.props.navigation.getParam('artist', '');
     if(album.id) {
       return (
-      <ScrollView><View>
+      <ScrollView style={styles.container}><View style={styles.header}>
+        <View style={styles.avatar}>
         <Avatar
         size="xlarge"
         rounded
         source={{uri:album.cover_medium}}></Avatar>
-        <View>
-            <Text h4>{album.title}</Text>
-            <Text h4>{artist}</Text>
+        </View>
+        <View style={styles.headerRight}>
+            <Text style={styles.mainText} h4>{album.title}</Text>
+            <Text style={styles.subText} h4>{artist}</Text>
         
         <Icon raised 
             name="play"
