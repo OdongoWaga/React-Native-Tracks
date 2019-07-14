@@ -19,7 +19,7 @@ export default class StorageScreen extends React.Component {
 
   async storeData() {
     const data = {
-      value: 'Some Testing Data!'
+      value: 'Some Testing Data'
     }
 
     const value = await actions.storeData('someKey', data);
@@ -58,9 +58,9 @@ export default class StorageScreen extends React.Component {
       <ScrollView style={styles.container}>
         <Text> I am a storage Screen </Text>
 
-        <Button title='store data!' onPress={ () => { this.storeData()}} />
-        <Button title='retreive  data!' onPress={ () => { this.retrieveData()}} />
-        <Button title='remove data!' onPress={ () => { this.removeData()}} />
+        <Button title='store data' onPress={ () => { this.storeData()}} />
+        <Button title='retrieve  data' onPress={ () => { this.retrieveData()}} />
+        <Button title='remove data' onPress={ () => { this.removeData()}} />
 
         <Text h4> {value} </Text>
 
