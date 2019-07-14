@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet, Linking } from 'react-native';
+import { View, ScrollView, StyleSheet, Linking, Alert } from 'react-native';
 import * as actions from '../actions'
 import { Avatar, Text, Icon, Divider, ListItem } from 'react-native-elements';
 
@@ -22,7 +22,37 @@ export default class AlbumDetailScreen extends Component {
 
   }
 
-  renderTracks () {
+  async saveTrackToFavorite(album, track) {
+    const favoriteAlbums = await actions.retrieveData('favoriteAlbums') || {};
+
+    let albumData = favoriteAlbums[album.id];
+
+    if (!albumData) {
+      albumData = album;
+    }
+
+    if (!albumData['tracks']) {
+      albumData['tracks'] = {};
+    }
+
+    albumData['tracks'][track.id] = track;
+    favoriteAlbums[album.id] = albumData;
+
+    const success =  actions.storeData('favoriteAlbums', favoriteAlbums);
+
+    if (success) {
+      Alert.alert(
+        'Track Added!',
+        `Track ${track.title} from ${track.artist.name} was added to Favorites!`,
+        [
+          {text: 'Continue', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )
+    }
+  }
+
+  renderTracks (album) {
       const {tracks} = this.state;
 
       if(tracks && tracks.length > 0) {
@@ -31,16 +61,26 @@ export default class AlbumDetailScreen extends Component {
                   <ListItem key={index}
                             containerStyle={{paddingTop: 0, marginTop: 0}}
                             title={track.title}
-                            leftIcon={{name: 'play-arrow'}}
-                            onPress={()=> Linking.openURL(track.preview)}
+                            //leftIcon={{name: 'play-arrow'}}
+                            //leftIconOnPress={()=> Linking.openURL(track.preview)}
                             rightIcon={
                                 <Icon raised
                                 name='star'
                                 type='font-awesome'
                                 color='#f50'
-                                onPress={()=> {}}
+                                onPress={()=> this.saveTrackToFavorite(album,track)}
                                 />
-                            }/>
+                            }
+                            leftIcon={
+                              <Icon raised
+                              name='play'
+                              type='font-awesome'
+                              color='#000'
+                              onPress={()=> Linking.openURL(track.preview) }
+                              />
+                          }
+                            />
+                            
               )
           })
       }
@@ -73,7 +113,7 @@ export default class AlbumDetailScreen extends Component {
         </View>
         <Divider style={{backgroundColor:'black'}}/>
         <View>
-        {this.renderTracks()}
+        {this.renderTracks(album)}
         </View>
       </ScrollView>
     );
