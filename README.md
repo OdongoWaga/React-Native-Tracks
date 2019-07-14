@@ -1,10 +1,10 @@
 # React-Native-Tracks
 React Native App that lets users discover music from their favourite artists, like their favourite albums and songs and play previews on the songs.
 
-<video width="320" height="240" controls>
-  <source src="https://github.com/OdongoWaga/React-Native-Tracks/blob/master/assets/images/sim.mp4?raw=true" type="video/mp4">
-</video>
 
+<br>
+<img height="700" src="https://github.com/OdongoWaga/React-Native-Tracks/blob/master/assets/images/2.gif?raw=true " />
+ <br>
 <br>
 <img height="700" src="https://github.com/OdongoWaga/React-Native-Tracks/blob/master/assets/images/Simulator%20Screen%20Shot%20-%20iPhone%20X%20-%202019-07-14%20at%2016.44.52.png?raw=true" />
  <br>
