@@ -10,6 +10,36 @@ export default class FavoriteScreen extends Component {
         title: 'Favorite Albums'
     }
 
+    constructor() {
+        super();
+    
+        this.state = {
+          favoriteAlbums: undefined
+        }
+    
+        this.getFavoriteAlbums();
+      }
+
+      async getFavoriteAlbums() {
+        const favoriteAlbums = await actions.retrieveData('favoriteAlbums');
+    
+        if (favoriteAlbums) {
+          this.setState({favoriteAlbums});
+        }
+      }
+    
+      async deleteAlbum(albumId) {
+        const { favoriteAlbums } = this.state;
+    
+        delete favoriteAlbums[albumId];
+    
+        const success = await actions.storeData('favoriteAlbums', favoriteAlbums);
+    
+        if (success) {
+          this.setState({favoriteAlbums});
+        }
+      }
+
     render() {
         return (
             <ScrollView>
