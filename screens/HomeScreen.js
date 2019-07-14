@@ -21,7 +21,7 @@ const menuList = [
     navigateTo: 'Albums'
   },
   {
-    title: 'Favorite Collections',
+    title: 'Music Collection',
     subtitle: 'Access your favorite albums',
     icon: 'heart',
     navigateTo: 'Favorite'

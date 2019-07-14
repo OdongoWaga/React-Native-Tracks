@@ -97,7 +97,10 @@ export default class FavoriteScreen extends Component {
     render() {
         return (
             <ScrollView>
+                <View containerStyle={styles.listContainer}>
                 {this.renderFavoriteAlbums()}
+                </View>
+                
             </ScrollView>
         )
     }
