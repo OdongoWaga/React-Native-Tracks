@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Button,
+  Linking,
   View,
 } from 'react-native';
 import { List, ListItem, Text, Icon, Card } from 'react-native-elements';

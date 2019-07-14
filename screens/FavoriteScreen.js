@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet,ScrollView } from 'react-native'
+import { View, StyleSheet,ScrollView,Linking } from 'react-native'
 import { Card, Button, Text, ListItem, Icon } from 'react-native-elements';
 
 import * as actions from '../actions';
