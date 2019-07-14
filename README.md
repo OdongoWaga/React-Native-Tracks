@@ -1,5 +1,5 @@
 # React-Native-Tracks
-React Native App that lets users discover music from their favourite artists, like their favourite albums and songs and play previews on the songs. Uses Deezer API to fetch data.
+React Native App that lets users discover music from their favourite artists, like their favourite albums and songs and play previews of the songs. Uses Deezer API to fetch data.
 
 
 <br>
