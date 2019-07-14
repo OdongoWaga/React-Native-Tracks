@@ -38,7 +38,7 @@ export default class HomeScreen extends React.Component {
   render () {
   return (
     <ScrollView style={styles.container}>
-     <View>
+     <View style={{backgroundColor: '#eaeaea', marginTop: 0}}>
   {
     menuList.map((item, index) => (
               <Card key={index}
