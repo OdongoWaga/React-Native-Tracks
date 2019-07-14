@@ -10,6 +10,7 @@ import {
   Button,
   View,
 } from 'react-native';
+import { List, ListItem, Text, Icon, Card } from 'react-native-elements';
 
 import { MonoText } from '../components/StyledText';
 
@@ -36,4 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  cardView: {
+    alignItems: 'center'
+  }
 });
