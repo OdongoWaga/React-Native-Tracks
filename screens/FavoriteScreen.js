@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet,ScrollView,Linking } from 'react-native'
-import { Card, Button, Text, ListItem, Icon } from 'react-native-elements';
+import { Card, Button, Text, ListItem } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import * as actions from '../actions';
 import _ from 'lodash';
@@ -51,7 +52,7 @@ export default class FavoriteScreen extends Component {
                   <Icon
                     raised
                     name='play-circle'
-                    type='font-awesome'
+                    size ={30}
                     color='#f50'
                     onPress={() => Linking.openURL(track.preview)}/>
                 } 
@@ -59,7 +60,7 @@ export default class FavoriteScreen extends Component {
                     <Icon
                       raised
                       name='music'
-                      type='font-awesome'
+                      size={30}
                       color='#f50'
                       />
                   }/>
@@ -81,7 +82,13 @@ export default class FavoriteScreen extends Component {
                       title='Delete Album'
                       raised
                       backgroundColor='#f50'
-                      name='trash'
+                      icon={
+                        <Icon
+                          name="trash"
+                          size={15}
+                          color="white"
+                        />
+                      }
                       onPress={() => this.deleteAlbum(album.id)}
                   />
                   <View>
