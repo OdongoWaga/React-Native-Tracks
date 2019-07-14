@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet,ScrollView } from 'react-native'
-import { Card, Button, Text, List, ListItem, Icon } from 'react-native-elements';
+import { Card, Button, Text, ListItem, Icon } from 'react-native-elements';
 
 import * as actions from '../actions';
 import _ from 'lodash';
