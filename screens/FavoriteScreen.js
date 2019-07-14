@@ -40,6 +40,8 @@ export default class FavoriteScreen extends Component {
         }
       }
 
+    
+
     render() {
         return (
             <ScrollView>
