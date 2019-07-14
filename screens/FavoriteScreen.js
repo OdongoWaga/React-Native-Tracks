@@ -40,12 +40,64 @@ export default class FavoriteScreen extends Component {
         }
       }
 
+      renderFavoriteTracks(tracks) {
+        if (tracks) {
+          return _.map(tracks, (track, id) => {
+            return (
+              <ListItem
+                key={id}
+                title={track.title}
+                rightIcon={
+                  <Icon
+                    raised
+                    name='play-circle'
+                    type='font-awesome'
+                    color='#f50'
+                    onPress={() => Linking.openURL(track.preview)}/>
+                } 
+                leftIcon={
+                    <Icon
+                      raised
+                      name='music'
+                      type='font-awesome'
+                      color='#f50'
+                      />
+                  }/>
+            )
+          })
+        }
+      }
+
+      renderFavoriteAlbums() {
+        const { favoriteAlbums } = this.state;
     
+        if (favoriteAlbums) {
+          return _.map(favoriteAlbums, (album, id) => {
+            return (
+              <View key={id}>
+                <Card
+                  title={album.title}>
+                    <Button
+                      title='Delete Album'
+                      raised
+                      backgroundColor='#f50'
+                      name='trash'
+                      onPress={() => this.deleteAlbum(album.id)}
+                  />
+                  <View>
+                  { this.renderFavoriteTracks(album.tracks)}
+                  </View>
+                </Card>
+              </View>
+            )
+          })
+        }
+      }
 
     render() {
         return (
             <ScrollView>
-                <Text> textInComponent </Text>
+                {this.renderFavoriteAlbums()}
             </ScrollView>
         )
     }
