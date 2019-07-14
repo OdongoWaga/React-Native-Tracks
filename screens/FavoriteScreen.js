@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet,ScrollView } from 'react-native'
+import { View, StyleSheet,ScrollView } from 'react-native'
+import { Card, Button, Text, List, ListItem, Icon } from 'react-native-elements';
+
+import * as actions from '../actions';
+import _ from 'lodash';
 
 export default class FavoriteScreen extends Component {
     static navigationOptions ={
